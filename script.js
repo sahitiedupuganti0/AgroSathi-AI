@@ -245,3 +245,104 @@ weatherForm.addEventListener("submit", async function (event) {
     weatherResult.appendChild(message);
   }
 });
+
+const sustainableForm =
+  document.getElementById("sustainableForm");
+
+const sustainableResult =
+  document.getElementById("sustainableResult");
+
+const sustainableTips = {
+  soil: {
+    title: "Build healthier soil",
+    tips: [
+      "Consider soil testing before making fertilizer decisions.",
+      "Use suitable compost or well-decomposed organic matter where appropriate.",
+      "Consider crop rotation with locally suitable crops.",
+      "Reduce unnecessary soil disturbance where practical."
+    ]
+  },
+
+  water: {
+    title: "Use water more efficiently",
+    tips: [
+      "Check soil moisture before deciding whether to irrigate.",
+      "Consider drip irrigation for suitable crops and field conditions.",
+      "Use mulch where appropriate to help reduce evaporation.",
+      "For rice, follow locally recommended water-management practices."
+    ]
+  },
+
+  pests: {
+    title: "Manage pests responsibly",
+    tips: [
+      "Inspect plants regularly and record pest levels.",
+      "Identify the pest before choosing a control method.",
+      "Protect beneficial insects and consider integrated pest management.",
+      "Use only locally recommended controls when needed."
+    ]
+  },
+
+  nutrition: {
+    title: "Improve nutrient management",
+    tips: [
+      "Use soil-test results to guide nutrient applications.",
+      "Consider compost and other suitable organic inputs.",
+      "Avoid applying more fertilizer than the crop requires.",
+      "Choose nutrient timing and amounts according to crop needs."
+    ]
+  }
+};
+
+sustainableForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const goal = document.getElementById("farmGoal").value;
+  const crop = document.getElementById("farmCrop").value;
+  const advice = sustainableTips[goal];
+
+  if (!advice || !crop) {
+    sustainableResult.hidden = false;
+    sustainableResult.textContent =
+      "Please select a goal and crop.";
+    return;
+  }
+
+  sustainableResult.replaceChildren();
+
+  function addTipText(tag, text) {
+    const element = document.createElement(tag);
+    element.textContent = text;
+    sustainableResult.appendChild(element);
+    return element;
+  }
+
+  addTipText("h3", advice.title);
+  addTipText(
+    "p",
+    "Selected crop: " +
+    crop.charAt(0).toUpperCase() + crop.slice(1)
+  );
+
+  const list = document.createElement("ul");
+
+  advice.tips.forEach(function (tip) {
+    const item = document.createElement("li");
+    item.textContent = tip;
+    list.appendChild(item);
+  });
+
+  sustainableResult.appendChild(list);
+
+  addTipText(
+    "p",
+    "These are general sustainable farming suggestions. " +
+    "Adapt them to your crop, soil, climate and local agricultural advice."
+  );
+
+  sustainableResult.hidden = false;
+  sustainableResult.scrollIntoView({
+    behavior: "smooth",
+    block: "nearest"
+  });
+});

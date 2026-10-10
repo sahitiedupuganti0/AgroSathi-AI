@@ -119,6 +119,42 @@
         </article>
       </div>
     </section>
+    
+<!-- Sustainable Farming Guide -->
+<section class="panel">
+  <h2>🌿 Sustainable Farming Guide</h2>
+  <p class="muted">
+    Explore practical ways to care for your soil, water and crops.
+  </p>
+
+  <form id="sustainableForm">
+    <label for="farmGoal">What would you like to improve?</label>
+    <select id="farmGoal" required>
+      <option value="">Choose a goal</option>
+      <option value="soil">Improve soil health</option>
+      <option value="water">Manage water use</option>
+      <option value="pests">Manage pests sustainably</option>
+      <option value="nutrition">Improve nutrient management</option>
+    </select>
+
+    <label for="farmCrop">Select your crop</label>
+    <select id="farmCrop" required>
+      <option value="">Choose a crop</option>
+      <option value="rice">Rice</option>
+      <option value="cotton">Cotton</option>
+      <option value="tomato">Tomato</option>
+      <option value="chilli">Chilli</option>
+      <option value="other">Other</option>
+    </select>
+
+    <button type="submit">Get Sustainable Tips →</button>
+  </form>
+
+  <div id="sustainableResult" class="result"
+       hidden aria-live="polite"></div>
+</section>
+<!-- End Sustainable Farming Guide -->
+
   </main>
 
   <footer>
