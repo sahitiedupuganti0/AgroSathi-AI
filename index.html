@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgroSathi AI | Smart Farming Assistant</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="brand">🌱 AgroSathi AI</div>
+    <span class="tagline">Smarter farming, naturally.</span>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">YOUR DIGITAL FARMING COMPANION</p>
+      <h1>Grow healthier crops.<br>Farm more sustainably.</h1>
+      <p>
+        Describe what you observe in your field to explore
+        possible causes and sustainable next steps.
+      </p>
+    </section>
+
+    <section class="panel">
+      <h2>Crop Health Assistant</h2>
+      <p class="muted">Tell us about your crop.</p>
+
+      <form id="cropForm">
+        <label for="crop">Select your crop</label>
+        <select id="crop" required>
+          <option value="">Choose a crop</option>
+          <option value="rice">Rice</option>
+          <option value="cotton">Cotton</option>
+          <option value="tomato">Tomato</option>
+          <option value="chilli">Chilli</option>
+          <option value="other">Other</option>
+        </select>
+
+        <label for="stage">Growth stage</label>
+        <select id="stage" required>
+          <option value="">Choose growth stage</option>
+          <option value="seedling">Seedling</option>
+          <option value="vegetative">Vegetative growth</option>
+          <option value="flowering">Flowering</option>
+          <option value="fruiting">Fruiting / grain filling</option>
+        </select>
+
+        <label for="symptom">What do you observe?</label>
+        <select id="symptom" required>
+          <option value="">Choose a symptom</option>
+          <option value="yellow">Yellow leaves</option>
+          <option value="spots">Spots or lesions on leaves</option>
+          <option value="wilting">Wilting or drooping</option>
+          <option value="pests">Visible insects or pest damage</option>
+          <option value="other">Other / unsure</option>
+        </select>
+
+        <label for="details">Additional details (optional)</label>
+        <textarea id="details" rows="3"
+          placeholder="When did you notice the problem?"></textarea>
+
+        <button type="submit">Get Farming Guidance →</button>
+      </form>
+
+      <div id="result" class="result" hidden aria-live="polite"></div>
+    </section>
+
+   
+    </section>
+
+    <!-- NEW: Weather Assistant -->
+    <section class="panel weather-panel">
+      <h2>🌦️ Live Weather Assistant</h2>
+      <p class="muted">
+        Check the weather before planning field activities.
+      </p>
+
+      <form id="weatherForm">
+        <label for="location">Location (city or town)</label>
+        <input
+          id="location"
+          type="text"
+          placeholder="e.g. Vijayawada"
+          required
+        />
+
+        <button type="submit">Check Weather →</button>
+      </form>
+
+      <div
+        id="weatherResult"
+        class="result"
+        hidden
+        aria-live="polite"
+      ></div>
+    </section>
+    <!-- END: Weather Assistant -->
+
+    <section class="info">
+      <h2>Better farming starts with better practices</h2>
+
+      <div class="info-grid">
+        <article>
+          <span>🌿</span>
+          <h3>Soil health</h3>
+          <p>Learn about soil testing, compost and balanced nutrition.</p>
+        </article>
+        <article>
+          <span>🐞</span>
+          <h3>Pest management</h3>
+          <p>Monitor crops and consider integrated pest management.</p>
+        </article>
+        <article>
+          <span>🌦️</span>
+          <h3>Weather awareness</h3>
+          <p>Use forecasts to support field management decisions.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    AgroSathi AI · Supporting informed, sustainable farming
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
