@@ -590,3 +590,83 @@ if (voiceModal) {
   });
 }
 
+const generatePlanButton = document.getElementById("generatePlan");
+const planCrop = document.getElementById("planCrop");
+const planConcern = document.getElementById("planConcern");
+const planResult = document.getElementById("planResult");
+
+if (generatePlanButton && planCrop && planConcern && planResult) {
+  generatePlanButton.addEventListener("click", () => {
+    const crop = planCrop.value;
+const concern = planConcern.value;
+
+const cropName = crop === "other"
+  ? customCropInput.value.trim()
+  : planCrop.options[planCrop.selectedIndex].text;
+
+if (crop === "other" && !cropName) {
+  customCropInput.focus();
+  customCropInput.reportValidity();
+  return;
+}
+
+    const plans = {
+      yellow: [
+        "Inspect which leaves are yellowing and whether the pattern is spreading.",
+        "Check soil moisture and drainage before changing watering.",
+        "Look for pests or other visible symptoms and seek local expert advice if it continues."
+      ],
+      pests: [
+        "Inspect both sides of leaves and the stems for insects or damage.",
+        "Record which parts of the crop are affected and how widespread it is.",
+        "Use integrated pest management and confirm the pest before choosing a treatment."
+      ],
+      water: [
+        "Check soil moisture near the root zone.",
+        "Inspect the field for standing water or dry patches.",
+        "Adjust watering based on the crop's growth stage and local conditions."
+      ],
+      weather: [
+        "Check the latest local forecast before field activities.",
+        "Inspect the field for waterlogging or heat stress after weather changes.",
+        "Follow locally recommended precautions for your crop and growth stage."
+      ],
+      soil: [
+        "Check soil moisture and observe the crop's growth.",
+        "Use well-decomposed compost where appropriate for your crop.",
+        "Consider a soil test before making major fertilizer changes."
+      ]
+    };
+
+    const steps = plans[concern];
+
+    planResult.innerHTML = `
+      <h3>Your Action Plan</h3>
+      <p><strong>Crop:</strong> ${cropName}</p>
+      <ol>
+        ${steps.map(step => `<li>${step}</li>`).join("")}
+      </ol>
+      <p><strong>Reminder:</strong> These are general suggestions.
+      Confirm the cause of crop problems before taking treatment decisions.</p>
+    `;
+
+    planResult.hidden = false;
+  });
+}
+
+const customCropBox = document.getElementById("customCropBox");
+const customCropInput = document.getElementById("customCrop");
+
+if (planCrop && customCropBox && customCropInput) {
+  planCrop.addEventListener("change", () => {
+    const isOther = planCrop.value === "other";
+
+    customCropBox.hidden = !isOther;
+    customCropInput.required = isOther;
+
+    if (!isOther) {
+      customCropInput.value = "";
+    }
+  });
+}
+

@@ -159,6 +159,53 @@
 
     </section>
 
+    
+<!-- My Farm Action Plan -->
+<section class="panel" id="farmPlan">
+  <h2>📋 My Farm Action Plan</h2>
+  <p class="muted">
+    Get a simple checklist of next steps for your farm.
+  </p>
+
+  <label for="planCrop">Select your crop</label>
+
+<select id="planCrop">
+  <option value="rice">Rice</option>
+  <option value="cotton">Cotton</option>
+  <option value="tomato">Tomato</option>
+  <option value="chilli">Chilli</option>
+  <option value="other">Other crop</option>
+</select>
+
+<div id="customCropBox" hidden>
+  <label for="customCrop">Enter your crop name</label>
+  <input
+    type="text"
+    id="customCrop"
+    placeholder="e.g. Maize, Groundnut, Sugarcane"
+    maxlength="60"
+  />
+</div>
+
+  </select>
+
+  <label for="planConcern">What concerns you most?</label>
+  <select id="planConcern">
+    <option value="yellow">Yellow leaves</option>
+    <option value="pests">Pests or insects</option>
+    <option value="water">Water management</option>
+    <option value="weather">Weather changes</option>
+    <option value="soil">Soil health</option>
+  </select>
+
+  <button type="button" id="generatePlan">
+    Create My Action Plan →
+  </button>
+
+  <div id="planResult" class="result" hidden
+       aria-live="polite"></div>
+</section>
+<!-- End My Farm Action Plan -->
 
     <section class="info">
       <h2>Better farming starts with better practices</h2>
