@@ -121,6 +121,31 @@
           placeholder="When did you notice the problem?"></textarea>
 
         <button type="submit">Get Farming Guidance →</button>
+          <div class="photo-doctor">
+    <h3>🌿 AI Crop Doctor</h3>
+    <p class="muted">Upload a clear photo of a crop or leaf to check for possible problems.</p>
+
+    <label for="cropPhoto">Choose a crop photo</label>
+    <input
+      type="file"
+      id="cropPhoto"
+      accept="image/jpeg,image/png,image/webp"
+    />
+
+    <img
+      id="cropPhotoPreview"
+      alt="Selected crop photo preview"
+      hidden
+      style="max-width:100%; max-height:280px; margin-top:12px; border-radius:12px;"
+    />
+
+    <button type="button" id="analyzeCropPhoto">
+      🔍 Analyze Crop Photo
+    </button>
+
+    <p id="photoDoctorStatus" role="status" aria-live="polite"></p>
+    <div id="photoDoctorResult" class="result hidden" aria-live="polite"></div>
+  </div>
       </form>
 
       <div id="result" class="result" hidden aria-live="polite"></div>
