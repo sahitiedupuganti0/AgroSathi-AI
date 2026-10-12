@@ -11,7 +11,66 @@
   <header class="navbar">
     <div class="brand">🌱 AgroSathi AI</div>
     <span class="tagline">Smarter farming, naturally.</span>
+
+<button type="button" id="voiceShortcut"
+        class="voice-shortcut"
+        aria-label="Open voice assistant"
+        title="Talk to AgroSathi">
+  🎙️
+</button>
   </header>
+  
+<!-- Voice Assistant Popup -->
+<div id="voiceModal" class="voice-modal" hidden>
+  <div class="voice-window">
+    <button type="button" id="closeVoice"
+            class="voice-close" aria-label="Close voice assistant">
+      ✕
+    </button>
+
+    <div class="voice-content">
+      <div class="voice-orb">🌱</div>
+      <h2>AgroSathi Voice Assistant</h2>
+      <p>Talk to your farming companion</p>
+
+      <select id="voiceLanguage" aria-label="Choose language">
+        <option value="te-IN">తెలుగు (Telugu)</option>
+        <option value="hi-IN">हिन्दी (Hindi)</option>
+        <option value="en-IN">English</option>
+      </select>
+
+      <p id="voiceStatus" aria-live="polite">
+        Choose your language and tap the microphone.
+      </p>
+
+      <button type="button" id="startVoice" class="voice-mic">
+        🎙️
+      </button>
+
+      <p class="voice-hint">Tap to speak</p>
+
+      <textarea id="voiceInput" rows="3"
+        placeholder="Your spoken words will appear here"></textarea>
+
+      <button type="button" id="getVoiceAdvice">
+        Get Farming Advice
+      </button>
+
+      <div id="voiceResult" class="result" hidden
+           aria-live="polite"></div>
+
+      <button type="button" id="speakAdvice" hidden>
+        🔊 Read Advice Aloud
+      </button>
+
+      <button type="button" id="stopSpeaking" hidden>
+        ⏹ Stop Speaking
+      </button>
+    </div>
+  </div>
+</div>
+<!-- End Voice Assistant Popup -->
+
 
   <main>
     <section class="hero">
@@ -98,8 +157,12 @@
     </section>
     <!-- END: Weather Assistant -->
 
+    </section>
+
+
     <section class="info">
       <h2>Better farming starts with better practices</h2>
+
 
       <div class="info-grid">
         <article>
